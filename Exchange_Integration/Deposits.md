@@ -13,11 +13,13 @@
 
 2. `./safex-wallet-rpc --rpc-bind-port 17405 --wallet-file <mywallet> --prompt-for-password`
 
-At first you must start the daemons, `safexd` is the connection to the `safex blockchain` and the `safex-wallet-rpc` allows you to **programmatically manage wallet file actions** such as checking balance, generating addresses for deposit, and spending funds.
 
+
+At first you must start the daemons, `safexd` is the connection to the `safex blockchain` and the `safex-wallet-rpc` allows you to **programmatically manage wallet file actions** such as checking balance, generating addresses for deposit, and spending funds.
 
 You should replace `<mywallet>` with a wallet file generated with the `./safex-wallet-cli` and the password will be the one used when that wallet file was created.
 
+You can find the latest downloadable binaries for `safexd` and `safex-wallet-rpc` at the [official safex releases page on github](https://github.com/safex/safexcore/releases). 
 
 **Next Step is programming and setting up your system.**
 
@@ -28,14 +30,14 @@ A `payment ID` is a `16 character hex string`. Once generated you must pad it wi
 Then, in your database of Users you must store this unique hexadecimal string. `Each User` must have **its own unique payment ID**.
 
 
-#### In order to generate a `payment ID` you have two options:
+### In order to generate a `payment ID` you have two options:
 
-1. You can **manually** generate the `16 character hex strings`, remember that they must be unique.
+* You can **manually** generate the `16 character hex strings`, remember that they must be unique.
 
-2. The `safex-wallet-rpc` can generate them for you. 
+* The `safex-wallet-rpc` can generate them for you. 
 
 
-#### First way (you generate your own payment ids):
+### Manually generating Payment IDs:
 
 1. Generate a `payment ID` for the user. 
 
@@ -58,7 +60,7 @@ Then, in your database of Users you must store this unique hexadecimal string. `
 7. You can verify the stored payment id with the response received that the two are matching, what is stored in the database and the was provided from the safex-wallet-rpc
 
 	
-#### Verifying received deposits.
+### Verifying received deposits.
 
 Now in order to verify that a deposit was received we recommend using the `get_bulk_payments` method.
 		
@@ -66,11 +68,11 @@ You will supply the starting `block height` from which to scan. After running th
 
 1. First thing that we will do is run the `get_bulk_payments` method. 
         
-        > curl -X POST http://127.0.0.1:17405/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_bulk_payments","params":{"min_block_height":0}}' -H 'Content-Type: application/json'
+        $ curl -X POST http://127.0.0.1:17405/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_bulk_payments","params":{"min_block_height":0}}' -H 'Content-Type: application/json'
 		
 2. Next we run `get_height` to record the top block that we scanned:
 		
-	    > curl -X POST http://127.0.0.1:17405/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_height","params":{}}' -H 'Content-Type: application/json'
+	    $ curl -X POST http://127.0.0.1:17405/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_height","params":{}}' -H 'Content-Type: application/json'
 
 3. Then you should subtract 1 from the received block height since the top block could be a block in progress of mining. We don't want to miss any blocks, this 			method will ensure we are scanning each and every block for transactions. This order is essential because if you are scanning a large distance of the chain, 			then blocks will be constantly produced while you are still processing transactions.
 
@@ -131,7 +133,7 @@ You will supply the starting `block height` from which to scan. After running th
 7. Run this regularly at least each `two minutes` to be most up to date with your Users deposits.		
 
 
-#### Confirming Deposits:
+### Confirming Deposits:
 	
 It is recommended to allow several blocks to pass before considering a transaction fully confirmed and crediting a User on your exchange. We recommend 15 confirmations. This means you should have the difference of 15 blocks between the transactions block_height and the network's block_height.
 
@@ -141,11 +143,11 @@ It is recommended to allow several blocks to pass before considering a transacti
 
 
 
-#### Using the safex-wallet-rpc to generate payment ids:
+### Using the safex-wallet-rpc to generate Payment IDs:
 
 1. Generate a payment ID and Integrated Address for the User. 
 		
-Call to the safex-wallet-rpc with the following command:
+Call to the `safex-wallet-rpc` with the following command:
 		    
     $ curl -X POST http://127.0.0.1:17405/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"make_integrated_address","params":{"standard_address":"<YOUR SAFEX ADDRESS"}}' -H 'Content-Type: application/json'
 
@@ -156,7 +158,7 @@ In response you will receive:
      "id": "0",
      "jsonrpc": "2.0",
      "result": {
-       "integrated_address": "SFXti9o1apCRhgUEU4FVJjBkNS9sarNpbexP6YfZgDYv3bcSVwCZtm9PWnpkoRiifC3uMQJS9ihFmNTbUXr2eWgY7LUMiNBLJ8tYNMHdD3hE6d",
+       "integrated_address": "SafexizbDqN8CvSGZyzDNU4N6x4N2YrdyffAAjFGw66pWcMoMN9a33fcfG8ARjSdE3LsGFrDtpUukYdLdrKLstp3covJu54hdRm7aRKwErqZpEHSF",
        "payment_id": "0f06ee25bb89a108"
      }
     }
