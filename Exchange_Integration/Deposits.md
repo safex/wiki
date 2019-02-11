@@ -1,7 +1,11 @@
-> Guidance for Exchange Integration Deposit Acceptance
+> Guidance for Exchange Integration: Deposit Acceptance
 
 
-**Start Executables**
+* Start Executables
+* Generate Payment ID & Integrated Address
+* Verify Incoming Deposits
+
+#### Start Executables
 
 1. `./safexd --restricted-rpc`
 
@@ -9,7 +13,7 @@
 
 2. `./safex-wallet-rpc --rpc-bind-port 17405 --wallet-file <mywallet> --prompt-for-password`
 
-At first you must start the daemons, one is the connection to the safex blockchain and the second allows you to programmatically manage wallet file actions such as checking balance, generating addresses for deposit, and spending funds.
+At first you must start the daemons, `safexd` is the connection to the `safex blockchain` and the `safex-wallet-rpc` allows you to **programmatically manage wallet file actions** such as checking balance, generating addresses for deposit, and spending funds.
 
 
 You should replace `<mywallet>` with a wallet file generated with the `./safex-wallet-cli` and the password will be the one used when that wallet file was created.
@@ -24,14 +28,14 @@ A `payment ID` is a `16 character hex string`. Once generated you must pad it wi
 Then, in your database of Users you must store this unique hexadecimal string. `Each User` must have **its own unique payment ID**.
 
 
-In order to generate a `payment ID` you have two options:
+#### In order to generate a `payment ID` you have two options:
 
-1. You can manually generate the `16 character hex strings`, remember that they must be unique.
+1. You can **manually** generate the `16 character hex strings`, remember that they must be unique.
 
 2. The `safex-wallet-rpc` can generate them for you. 
 
 
-**First way (you generate your own payment ids):**
+#### First way (you generate your own payment ids):
 
 1. Generate a `payment ID` for the user. 
 
@@ -54,7 +58,7 @@ In order to generate a `payment ID` you have two options:
 7. You can verify the stored payment id with the response received that the two are matching, what is stored in the database and the was provided from the safex-wallet-rpc
 
 	
-**Now Verifying received deposits.**
+#### Verifying received deposits.
 
 Now in order to verify that a deposit was received we recommend using the `get_bulk_payments` method.
 		
@@ -127,7 +131,7 @@ You will supply the starting `block height` from which to scan. After running th
 7. Run this regularly at least each `two minutes` to be most up to date with your Users deposits.		
 
 
-Now Confirming Deposits:
+#### Confirming Deposits:
 	
 It is recommended to allow several blocks to pass before considering a transaction fully confirmed and crediting a User on your exchange. We recommend 15 confirmations. This means you should have the difference of 15 blocks between the transactions block_height and the network's block_height.
 
@@ -137,7 +141,7 @@ It is recommended to allow several blocks to pass before considering a transacti
 
 
 
-Using the safex-wallet-rpc to generate payment ids:
+#### Using the safex-wallet-rpc to generate payment ids:
 
 1. Generate a payment ID and Integrated Address for the User. 
 		
