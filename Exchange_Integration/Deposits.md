@@ -126,7 +126,7 @@ You will supply the starting `block height` from which to scan. After running th
 
 	* d. If the `token_transaction` is `false` then it is a `safex cash` transaction.
 
-5. If we do not have a collision in the payments table, then we can update our User balance by matching the "payment_id" from the payment in question.
+5. If we do not have a collision in the payments table, then we can update our User balance by matching the `payment_id` from the payment in question.
 
 6. Repeat for all `payments` in the array.
 
@@ -135,9 +135,9 @@ You will supply the starting `block height` from which to scan. After running th
 
 ### Confirming Deposits:
 	
-It is recommended to allow several blocks to pass before considering a transaction fully confirmed and crediting a User on your exchange. We recommend 15 confirmations. This means you should have the difference of 15 blocks between the transactions block_height and the network's block_height.
+It is recommended to allow several blocks to pass before considering a transaction fully confirmed and crediting a User on your exchange. We recommend `15 confirmations`. This means you should have **the difference of 15 blocks between the transactions** `block_height` and the `network's block_height`.
 
-1. Call to the payments table, scan payments by block_height and do arithmetic between current block_height and the block_height of the transaction.
+1. Call to the payments table, scan payments by `block_height` and do arithmetic between `current block_height` and the `block_height of the transaction`.
 
 2. If the difference is greater than 15 then you should be able to safely credit the User and consider the transaction to be final.
 
