@@ -167,5 +167,4 @@ In response you will receive:
 2. Pad the responded `payment_id` with 48 `0`'s so that it is `64 characters` long and store this for the User along with the `Integrated Address`.
 	
 
-	
-
+Follow the same pattern for verifying deposits as described earlier in the tutorial. You will have stored the `padded payment id` in your database already.
