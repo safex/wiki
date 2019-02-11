@@ -116,7 +116,7 @@ You will supply the starting `block height` from which to scan. After running th
 
    The above response has an object: results, and inside we have the payments object that is an array of transactions from all blocks scanned. 
 	
-4. Now we iterate over the `payments` and extract `payment_id` and `tx_hash` and check our payments table in the database that we have not already processed this "tx_hash". We should store payment_id, tx_hash, block_height, amount, and token or cash transaction.
+4. Now we iterate over the `payments` and extract `payment_id` and `tx_hash` and check our payments table in the database that we have not already processed this `tx_hash`. We should store `payment_id`, `tx_hash`, `block_height`, `amount`, and `token or cash transaction`.
 
 	* a. To check if the transaction is token or cash you check the `token_transaction` field. 
 	
