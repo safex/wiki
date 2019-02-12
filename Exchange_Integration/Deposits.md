@@ -5,7 +5,7 @@
 * Generate Payment ID & Integrated Address
 * Verify Incoming Deposits
 
-#### Start Executables
+### Start Executables
 
 1. `./safexd --restricted-rpc`
 
