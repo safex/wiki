@@ -84,6 +84,15 @@ Hitting `reset` on the migration interface will set the `migration_progress` to 
 the process from the beginning.
 
 
-* Version
-* Keys - An array of `Secp256k1` keys used for storing `Bitcoins` and `Safe Exchange Coins` which 
+* **Version** - the wallet version number, so that in future iterations can be coded to identify which 
+version of the wallet file isbeing interacted with.
+* **Keys** - An array of `Secp256k1` keys used for storing `Bitcoins` and `Safe Exchange Coins` which 
 adhere to the `Omni Protocol`
+    * **Keys Object** - This stores the `public` and `private` keys as well as `meta information` for the wallet
+    functionality, in addition to the `migration data`.
+        * **public_key** - this is a `bitcoin` public key in the `address` format.
+        * **private_key** - this is a `wif` format private key for `bitcoin` or `safe exchange coin`.
+        * **safex_bal** - this field is used internally to store the balance that is displayed. 
+        It is never written to the actual wallet file. This would represent the `Safe Exchange Coin` Balance.
+        * **btc_bal** - this field is used internally to store the balance that is displayed. 
+        It is never written to the actual wallet file. This would represent the `Bitcoin` Balance.
