@@ -82,3 +82,8 @@ Safex Address (from bitcoin to safex blockchain migration process)
 
 Hitting `reset` on the migration interface will set the `migration_progress` to 0 and cause the UI to load
 the process from the beginning.
+
+
+* Version
+* Keys - An array of `Secp256k1` keys used for storing `Bitcoins` and `Safe Exchange Coins` which 
+adhere to the `Omni Protocol`
