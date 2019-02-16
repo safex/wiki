@@ -96,3 +96,16 @@ adhere to the `Omni Protocol`
         It is never written to the actual wallet file. This would represent the `Safe Exchange Coin` Balance.
         * **btc_bal** - this field is used internally to store the balance that is displayed. 
         It is never written to the actual wallet file. This would represent the `Bitcoin` Balance.
+        * **pending_safex_bal** - this field is used to display the net pending balance for `Safe Exchange Coin`.
+        It will take outgoing and incoming transactions and display the net amount.
+        * **pending_btc_bal** - this field is used to display the net pending balance for `Bitcoin`.
+        It will take outgoing and incoming transactions and display the net amount.
+        * **migration_data** - the migration field stores an object for the migration process. This object
+        is the active information that was last set. So if someone started the migration process this is
+        where the keys are stored. 
+            * **safex_keys** - this object is part of the `migration_data` object. This is the object that
+            stores the active `safex blockchain` key used in the migration process.
+                * **spend** - this is the `spend key pair` as part of the `cryptonote` architecture, 
+                the `safex blockchain` uses a two key system, the spend and view keys. 
+                    * **sec** - the secret part of the key pair.
+                    * **pub** - the public part of the key pair.
