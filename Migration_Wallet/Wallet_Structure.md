@@ -107,6 +107,13 @@ adhere to the `Omni Protocol`
             stores the active `safex blockchain` key used in the migration process. The keys are generated 
             using the ed25519 curve.
                 * **spend** - this is the `spend key pair` as part of the `cryptonote` architecture, 
-                the `safex blockchain` uses a two key system, the spend and view keys. 
+                the `safex blockchain` uses a two key system, the spend and view keys. The `spend key` 
+                is used as part of spending inputs that were discovered by the view key.
+                    * **sec** - the secret part of the key pair.
+                    * **pub** - the public part of the key pair.
+                * **view** - this is the `view key pair` as part of the `cryptonote` architecture, 
+                the `safex blockchain` uses a two key system, the spend and view keys. The `view key`
+                is used to scan the blockchain and retrieve outputs that belong to you as inputs for 
+                future transactions.
                     * **sec** - the secret part of the key pair.
                     * **pub** - the public part of the key pair.
