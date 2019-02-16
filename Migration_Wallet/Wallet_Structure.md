@@ -104,7 +104,8 @@ adhere to the `Omni Protocol`
         is the active information that was last set. So if someone started the migration process this is
         where the keys are stored. 
             * **safex_keys** - this object is part of the `migration_data` object. This is the object that
-            stores the active `safex blockchain` key used in the migration process.
+            stores the active `safex blockchain` key used in the migration process. The keys are generated 
+            using the ed25519 curve.
                 * **spend** - this is the `spend key pair` as part of the `cryptonote` architecture, 
                 the `safex blockchain` uses a two key system, the spend and view keys. 
                     * **sec** - the secret part of the key pair.
