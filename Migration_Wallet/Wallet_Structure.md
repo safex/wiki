@@ -117,3 +117,8 @@ adhere to the `Omni Protocol`
                 future transactions.
                     * **sec** - the secret part of the key pair.
                     * **pub** - the public part of the key pair.
+                * **public_addr** - the `public address` is a combination of the `public view key` and the 
+                `public spend key` hashed with checksums and passed through `cnBase58` which is a variation 
+                on the base58 function.
+                * **checksum** - the keccak256 of the address prefix + spend pub key + view pub key.
+                
