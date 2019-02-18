@@ -121,4 +121,12 @@ adhere to the `Omni Protocol`
                 `public spend key` hashed with checksums and passed through `cnBase58` which is a variation 
                 on the base58 function.
                 * **checksum** - the keccak256 of the address prefix + spend pub key + view pub key.
-                
+            * **migration_progress** - this is a number that represents where the user is present in during
+            the migration process. 
+            * **archived** - if this is true, then the address is hidden in the `archive` section and out of
+            site from the main view of the list of addresses.
+            * **label** - if a label had been set, then this is the field that will hold the text that
+            a user can use to give a description to the address.
+* **safex_keys** - this is an array that stores all `safex keys` generated throughout the life of the wallet.
+These are safex keys that are collected even through multiple iterations of the migration process, including
+across different addresses.
