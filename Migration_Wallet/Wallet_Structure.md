@@ -130,3 +130,19 @@ adhere to the `Omni Protocol`
 * **safex_keys** - this is an array that stores all `safex keys` generated throughout the life of the wallet.
 These are safex keys that are collected even through multiple iterations of the migration process, including
 across different addresses.
+    * **safex_key object** - within the `safex_keys array` is a list of contents of an `individual safex key`.
+        * **spend** - this is the `spend key pair` as part of the `cryptonote` architecture, 
+        the `safex blockchain` uses a two key system, the spend and view keys. The `spend key` 
+        is used as part of spending inputs that were discovered by the view key.
+            * **sec** - the secret part of the key pair.
+            * **pub** - the public part of the key pair.
+        * **view** - this is the `view key pair` as part of the `cryptonote` architecture, 
+        the `safex blockchain` uses a two key system, the spend and view keys. The `view key`
+        is used to scan the blockchain and retrieve outputs that belong to you as inputs for 
+        future transactions.
+            * **sec** - the secret part of the key pair.
+            * **pub** - the public part of the key pair.
+        * **public_addr** - the `public address` is a combination of the `public view key` and the 
+        `public spend key` hashed with checksums and passed through `cnBase58` which is a variation 
+        on the base58 function.
+        * **checksum** - the keccak256 of the address prefix + spend pub key + view pub key.
