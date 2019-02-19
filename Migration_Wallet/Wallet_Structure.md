@@ -69,7 +69,7 @@ Let's dive in.
 ```
 
 
-### Migration Progress 
+### Migration Progress
 
      "migration_progress": 3, //can be a 1, 2, 3, or 4
                          ^^^^^
@@ -122,7 +122,7 @@ adhere to the `Omni Protocol`
                 on the base58 function.
                 * **checksum** - the keccak256 of the address prefix + spend pub key + view pub key.
             * **migration_progress** - this is a number that represents where the user is present in during
-            the migration process. 
+            the migration process. [Read the detailed breakdown of the phases.](#migration-progress)
             * **archived** - if this is true, then the address is hidden in the `archive` section and out of
             site from the main view of the list of addresses.
             * **label** - if a label had been set, then this is the field that will hold the text that
