@@ -13,7 +13,7 @@
 
 [Verifying Received Deposits](#verifying-received-deposits)
 
-[Confirming Deposits](#confirmeing-deposits)
+[Confirming Deposits](#confirming-deposits)
 
 
 
