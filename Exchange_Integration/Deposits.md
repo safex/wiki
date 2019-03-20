@@ -7,9 +7,15 @@
 
 [Start Executables](#start-executables)
 
-[Manually Generating Payment IDs](###manually-generating-payment-ids)
+[Manually Generating Payment IDs](#manually-generating-payment-ids)
+
+[Safex-Wallet-RPC Generated Payment IDs](#using-the-safex-wallet-rpc-to-generate-Payment-IDs)
 
 [Verifying Received Deposits](#verifying-received-deposits)
+
+[Confirming Deposits](#confirmeing-deposits)
+
+
 
 
 
@@ -68,7 +74,7 @@ Then, in your database of Users you must store this unique hexadecimal string. `
 7. You can verify the stored payment id with the response received that the two are matching, what is stored in the database and the was provided from the safex-wallet-rpc
 
 	
-### Verifying Received Deposits
+# Verifying Received Deposits
 
 Now in order to verify that a deposit was received we recommend using the `get_bulk_payments` method.
 		
@@ -141,7 +147,7 @@ You will supply the starting `block height` from which to scan. After running th
 7. Run this regularly at least each `two minutes` to be most up to date with your Users deposits.		
 
 
-### Confirming Deposits:
+# Confirming Deposits
 	
 It is recommended to allow several blocks to pass before considering a transaction fully confirmed and crediting a User on your exchange. We recommend `15 confirmations`. This means you should have **the difference of 15 blocks between the transactions** `block_height` and the `network's block_height`.
 
@@ -151,7 +157,7 @@ It is recommended to allow several blocks to pass before considering a transacti
 
 
 
-### Using the safex-wallet-rpc to generate Payment IDs:
+# Using the safex-wallet-rpc to generate Payment IDs
 
 1. Generate a payment ID and Integrated Address for the User. 
 		
