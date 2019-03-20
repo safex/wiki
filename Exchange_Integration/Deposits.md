@@ -5,7 +5,15 @@
 * Generate Payment ID & Integrated Address
 * Verify Incoming Deposits
 
-### Start Executables
+[Start Executables](#start-executables)
+
+[Manually Generating Payment IDs](###manually-generating-payment-ids)
+
+[Verifying Received Deposits](#verifying-received-deposits)
+
+
+
+# Start Executables
 
 1. `./safexd --restricted-rpc`
 
@@ -37,7 +45,7 @@ Then, in your database of Users you must store this unique hexadecimal string. `
 * The `safex-wallet-rpc` can generate them for you. 
 
 
-### Manually generating Payment IDs:
+# Manually Generating Payment IDs
 
 1. Generate a `payment ID` for the user. 
 
@@ -60,7 +68,7 @@ Then, in your database of Users you must store this unique hexadecimal string. `
 7. You can verify the stored payment id with the response received that the two are matching, what is stored in the database and the was provided from the safex-wallet-rpc
 
 	
-### Verifying received deposits.
+### Verifying Received Deposits
 
 Now in order to verify that a deposit was received we recommend using the `get_bulk_payments` method.
 		
