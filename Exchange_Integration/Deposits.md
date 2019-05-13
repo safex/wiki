@@ -25,7 +25,7 @@
 
    (the restricted rpc flag forces your node to only permit basic wallet functionality)
 
-2. `./safex-wallet-rpc --rpc-bind-port 17405 --wallet-file <mywallet> --prompt-for-password`
+2. `./safex-wallet-rpc --rpc-bind-port 17405 --wallet-file <mywallet> --prompt-for-password --daemon-address <host>:<port>`
 
 
 
