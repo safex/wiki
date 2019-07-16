@@ -39,13 +39,14 @@ Perform core and unit tests on all platforms by building safexcore with `make st
 ## Stage network tests
 
 Stage network is used for realistic production prerelease testing. 
-There are two stage network nodes (//TODO insert IP addresses here) and stagenet explorer is available on link (//TODO insert link here). Stage network should be used for all integration tests. 
+There are two stage network nodes *68.183.73.230* and *138.68.79.110* and stagenet explorer is available on this [link](http://68.183.73.230). Stage network should be used for all integration tests. 
+
 
 ### Safexd node test
 
 - Confirm version number with *version* node command
-- Sync safexd node from scratch from existing network
-- Sync locally another safexd node from newly synced safexd node in the previous step
+- Sync safexd node locally from scratch from existing network
+- Sync locally second safexd node (on different port) from newly synced safexd node in the previous step
 - Check blockchain height with `print_height`
 - Check hard fork info with `hard_fork_info`
 - Print transactions (//todo insert tx hashes here) with `print_tx <transaction_hash> +json` command
@@ -63,7 +64,7 @@ There are two stage network nodes (//TODO insert IP addresses here) and stagenet
 Prepare 3 stage net test wallets, *wallet01*, *wallet02* and *wallet03*. They should already be filled with some cash and token amount. Use them and wallet command line to perform following operations:
 
 * Use previous existing wallet files and sync up one or more wallets
-* Recreate one or more wallets from scratch using seed and keys and sync them up
+* Recreate one or more wallets from scratch using both seed and keys and sync them up
 * Check viewkey and spendkey with `viewkey` and `spendkey` commands
 * Check cash transfer
   * Send safex cash small amount from one wallet to another, check for dust handling
@@ -83,7 +84,7 @@ Prepare 3 stage net test wallets, *wallet01*, *wallet02* and *wallet03*. They sh
   * Check if receiving wallet has received token payments with `payments <PID>` command
   * Check sending token to interated address
   * Check sending token to subaddress
-* Check if wallet is regularly updated
+* Check if wallet is regularly updated with new blocks information
   * is correctly displaying balance updates, tx history, output updates?
 * Test token migration (only authorized person with advanced wallet)
 * Test sweep_unmixable operation (if needed, create some uncommon large output and try to spend it) 
@@ -103,7 +104,7 @@ Prepare 3 stage net test wallets, *wallet01*, *wallet02* and *wallet03*. They sh
 
 Use (//todo insert JS script link) for RPC wallet testing
 
-Repeat all previous cli wallet tests with RPC wallet, using RPC scripts.
+Repeat all previous cli wallet tests with RPC wallet, using RPC scripts. 
 
 
 ### Blockchain explorer test
