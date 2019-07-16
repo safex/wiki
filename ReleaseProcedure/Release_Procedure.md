@@ -58,7 +58,7 @@ There are two stage network nodes (//TODO insert IP addresses here) and stagenet
 
 
 
-### Safexd cli wallet test
+### Safex cli wallet test
 
 Prepare 3 stage net test wallets, *wallet01*, *wallet02* and *wallet03*. They should already be filled with some cash and token amount. Use them and wallet command line to perform following operations:
 
@@ -83,28 +83,77 @@ Prepare 3 stage net test wallets, *wallet01*, *wallet02* and *wallet03*. They sh
   * Check if receiving wallet has received token payments with `payments <PID>` command
   * Check sending token to interated address
   * Check sending token to subaddress
+* Check if wallet is regularly updated
+  * is correctly displaying balance updates, tx history, output updates?
 * Test token migration (only authorized person with advanced wallet)
 * Test sweep_unmixable operation (if needed, create some uncommon large output and try to spend it) 
 * Check current available outputs with `unspent_cash_outputs`
 * Check current token outputs with `unspent_token_outputs`
 * Check local cli wallet transaction history
+  * Are all transactions correctly displayed?
 * Check particular transfer with `show_transfer <txid>` command
+  * Check for inconsistencies
 * Check blockchain rescan process with `rescan_bc` and `rescan_spent` commands
 * Check balance with `balance`, `balance_cash`, `balance_token` commands
 * Check proof if somebody has send transaction (`get_spend_proof`, `check_tx_proof`)
 * Check transaction key for particular previous transaction with `get_tx_key`
  
 
+### Safex RPC wallet test
+
+Use (//todo insert JS script link) for RPC wallet testing
+
+Repeat all previous cli wallet tests with RPC wallet, using RPC scripts.
+
+
 ### Blockchain explorer test
+
+Check stagenet blockchain explorer.
+
+* Blocks info getting updated regularly
+* Check information for one block
+* Check transaction info display
+  * Check if it is possible to decode outputs of the transaction
+  * Check if it is possible to prove sending of the transaction
 
 
 ### Mining tests
 
 #### Cpu minter test
+
+Basic test of Safex 1 Click Mining App.
+    
+* Run and sync one click CPU miner
+* Check token and cash initial balance
+* Test mining with one click CPU miner
+* Observe cash balance updates while mining is in probress
+* Try to send cash with one click CPU miner and check for balance updates
+* Try to send tokens with one click CPU miner and check for balance updates
+    
+
 #### GPU Mining test
+
+If there were changes related to hash mining algorithm, GPU mining test is a must.
+
+
+Perform GPU solo mining test, information about build procedures are available [here](https://github.com/safex/safexcore/blob/release-v0.1.2/Mining.md).
+
+* Build monero-stratum with latest safexcore build
+* Build latest xmrig-nvidia and test GPU mining with Nvidia GPU
+* Build latest xmr-stak and test GPU mining with AMD GPU
 
 
 ### Safex Cash Orbiter Wallet
+
+
+
+
+
+## Release
+
+After all tests pass successfully, new github release will be created. It should contain Windows, Ubuntu 18.04, Ubuntu 16.04 and OSX binaries for node, command line wallet and rpc wallet.
+
+
 
 
 
