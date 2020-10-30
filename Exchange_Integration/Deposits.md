@@ -33,7 +33,7 @@ At first you must start the daemons, `safexd` is the connection to the `safex bl
 
 You should replace `<mywallet>` with a wallet file generated with the `./safex-wallet-cli` and the password will be the one used when that wallet file was created.
 
-You can find the latest downloadable binaries for `safexd` and `safex-wallet-rpc` at the [official safex releases page on github](https://github.com/safex/safexcore/releases). 
+You can find the latest downloadable binaries for `safexd` and `safex-wallet-rpc` at the [official safex releases page on github](https://github.com/safex/safexcore/releases/tag/6.0.0). 
 
 **Next Step is programming and setting up your system.**
 
